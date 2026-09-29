@@ -1,5 +1,8 @@
 from dataclasses import dataclass, field
+from cube.cubelet import Cubelet
+from cube.rotations import rotate_vector_90
 from typing import Dict, Tuple
+from cube.rotations import rotate_cubelet
 import random
 
 Vector3 = Tuple[int, int, int]
@@ -89,23 +92,10 @@ class Cube:
 
     def _rotate_layer(
         self,
-        axis: str,
-        layer: int,
-        direction: int
+        axis,
+        layer,
+        direction
     ):
-        """
-        Rotate one layer by 90 degrees.
-
-        axis:
-            x, y or z
-
-        layer:
-            -1, 0 or 1
-
-        direction:
-            1  = +90 degrees
-            -1 = -90 degrees
-        """
 
         axis_index = {
             "x": 0,
@@ -117,33 +107,14 @@ class Cube:
 
         for cubelet in self.cubelets:
 
-            position = cubelet.position
-
-            # Ignore cubelets that are not in selected layer
-            if position[index] != layer:
+            if cubelet.position[index] != layer:
                 continue
 
-            # Rotate cubelet position
-            cubelet.position = self._rotate_vector_90(
-                position,
+            rotate_cubelet(
+                cubelet,
                 axis,
                 direction
             )
-
-            # Rotate sticker directions
-            rotated_stickers = {}
-
-            for normal, color in cubelet.stickers.items():
-
-                new_normal = self._rotate_vector_90(
-                    normal,
-                    axis,
-                    direction
-                )
-
-                rotated_stickers[new_normal] = color
-
-            cubelet.stickers = rotated_stickers
 
     def rotate_face(self, face: str, angle: int = 90):
         """
