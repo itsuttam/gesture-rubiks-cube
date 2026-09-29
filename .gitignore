@@ -1,0 +1,58 @@
+# virtual environment
+.venv/
+venv/
+env/
+
+# python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# python build files
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# IDE settings
+.vscode/
+.idea/
+
+# operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# logs
+*.log
+
+# temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# test and coverage files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# type checker cache
+.mypy_cache/
+
+# environment files
+.env
+.env.*
+!.env.example
+
+# local media or recordings
+recordings/
+captures/
+screenshots/
+
+# generated output
+output/
+exports/
+
+# local debug files
+debug/

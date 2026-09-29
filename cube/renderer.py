@@ -14,10 +14,7 @@ from OpenGL.GL import (
 )
 
 
-# --------------------------------------------
 # COLORS
-# --------------------------------------------
-
 COLORS = {
     "white": (
         1.0,
@@ -63,10 +60,8 @@ COLORS = {
 }
 
 
-# --------------------------------------------
-# CUBE GEOMETRY
-# --------------------------------------------
 
+# CUBE GEOMETRY
 VERTICES = [
     (-0.5, -0.5, -0.5),
     (0.5, -0.5, -0.5),
@@ -161,9 +156,9 @@ class CubeRenderer:
         self.cubelet_size = cubelet_size
         self.spacing = spacing
 
-    # ----------------------------------------
+    
     # GET COLOR
-    # ----------------------------------------
+    
 
     def _get_face_color(
         self,
@@ -186,9 +181,9 @@ class CubeRenderer:
             COLORS["black"]
         )
 
-    # ----------------------------------------
+    
     # DRAW ONE FACE
-    # ----------------------------------------
+    
 
     def _draw_face(
         self,
@@ -229,9 +224,9 @@ class CubeRenderer:
 
         glEnd()
 
-    # ----------------------------------------
+    
     # DRAW EDGES
-    # ----------------------------------------
+    
 
     def _draw_edges(self):
 
@@ -268,9 +263,7 @@ class CubeRenderer:
 
         glEnd()
 
-    # ----------------------------------------
     # DRAW ONE CUBELET
-    # ----------------------------------------
 
     def draw_cubelet(
         self,
@@ -299,10 +292,7 @@ class CubeRenderer:
 
         glPopMatrix()
 
-    # ----------------------------------------
     # DRAW COMPLETE CUBE
-    # ----------------------------------------
-
     def draw(
         self,
         cube
